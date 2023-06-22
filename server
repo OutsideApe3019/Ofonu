@@ -1,0 +1,39 @@
+<?php
+
+$colors = [
+    "reset" => "\033[0m",
+    "black" => "\033[0;30m",
+    "red" => "\033[0;31m",
+    "green" => "\033[0;32m",
+    "yellow" => "\033[0;33m",
+    "blue" => "\033[0;34m",
+    "purple" => "\033[0;35m",
+    "cyan" => "\033[0;36m",
+    "white" => "\033[0;37m",
+];
+
+foreach ($colors as $color => $code) {
+    $$color = $code;
+}
+
+if ($argc !== 1) {
+    if ($argv[1] == 'start') {
+        $command = 'php -S localhost:8000 index.php';
+
+        $handle = popen($command, 'r');
+
+        while (!feof($handle)) {
+            $output = fread($handle, 4096);
+            echo $output;
+        }
+
+        pclose($handle);
+    } else if ($argv[1] == 'help') {
+        echo $green . "\nphp server start".$reset.":".$yellow." Start the php server.\n".$reset;
+        echo "\n";
+    } else {
+        echo $red . "Unknown command, type 'php server help' for help" . $reset;
+    }
+} else {
+    echo $red . "Not enough arguments, type 'php server help' for help" . $reset;
+}
