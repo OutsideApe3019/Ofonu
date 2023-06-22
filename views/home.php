@@ -13,7 +13,7 @@
             {{ $text }}
         </p>
         <div class="mx-auto grid grid-rows-1 grid-cols-1 mt-10">
-            <a href="https://github.com/OutsideApe3019/Ofonu" class="bg-neutral-200 p-5 rounded-[15px] border-2 border-neutral-300 text-center">
+            <a href="https://github.com/OutsideApe3019/Ofonu" class="bg-neutral-200 p-5 rounded-[15px] border-2 border-neutral-300 text-center" target="_blank">
                 Github
             </a>
         </div>

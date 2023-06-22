@@ -16,12 +16,6 @@ class Route
     {
         $method = strtoupper($method);
 
-        if ($method !== 'GET' && $method !== 'POST') {
-            throw new Exception("Method \"$method\" not valid. Only GET or POST");
-
-            return false;
-        }
-
         $url = preg_replace('/ /', '', $url);
         $url = '/' . $url;
         $url .= '/';
